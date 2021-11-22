@@ -1,5 +1,7 @@
+noseX=0
+noseY=0
 function preload() {
-
+mous=loadImage("https://i.postimg.cc/8PQVj5Hh/Moustache-PNG-Pic.png")
 }
 
 function setup(){
@@ -13,11 +15,8 @@ function setup(){
 }
 function gotPoses(results){
     if (results.length>0){
-        console.log(results)
-        console.log("leftEye" + results[0].pose.leftEye.x)
-        console.log("leftEye" + results[0].pose.leftEye.y)
-        console.log("rightEye" + results[0].pose.rightEye.x)
-        console.log("rightEye" + results[0].pose.rightEye.y)
+       noseX=results[0].pose.nose.x
+       noseY=results[0].pose.nose.y
     }
 }
 
@@ -30,4 +29,5 @@ function Take_Snap(){
 
 function draw(){
     image(v1, 0, 0, 500, 500)
+    image(mous, noseX-50, noseY, 100, 50)
 }
